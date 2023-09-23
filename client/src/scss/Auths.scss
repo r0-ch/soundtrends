@@ -1,0 +1,53 @@
+.auth {
+    max-width: 400px;
+    margin: 4em auto;
+    background: $first;
+    background: linear-gradient(45deg, $first 10%, $second 100%);
+    padding: 4em 5em;
+    border-radius: 2em;
+    border: solid white 3px;
+    font-family: $second-font;
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.75em;
+
+        h1 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1em;
+            margin-bottom: 1.5em;
+            color: white;
+            transform: scaleX(0.75);
+        }
+
+        &__field {
+            display: flex;
+            flex-direction: column;
+
+            input {
+                width: 100%;
+                height: 45px;
+                padding: 10px;
+                border: 1px solid azure;
+                border-radius: 4px;
+            }
+
+            label {
+                margin-bottom: 0.75em;
+                margin-left: 0.25em;
+                align-self: start;
+                color: azure;
+            }
+        }
+
+        button {
+            @include button;
+            padding: 0.75em 2em
+        }
+    }
+
+
+}
+
