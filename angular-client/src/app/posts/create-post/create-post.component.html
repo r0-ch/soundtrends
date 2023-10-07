@@ -1,0 +1,46 @@
+<main>
+    <div class="post-form">
+        <h2>Ajouter un post</h2>
+        <form class="form" (ngSubmit)="onSubmit($event)" encType="multipart/form-data" >
+            <div class="form__fields">
+                <input
+                    class="form__field"
+                    type="text"
+                    placeholder="titre"
+                    [(ngModel)]="title"
+                    name="title"
+                    
+                />
+                <textarea
+                    class="form__field form__field--area"
+                    placeholder="résumé"
+                    [(ngModel)]="summary"
+                    name="summary"
+                    
+                > </textarea>
+                <textarea
+                    class="form__field form__field--quill"
+                    theme="snow"
+                    placeholder="contenu"
+                    [(ngModel)]="content"
+                    name="content"
+                > </textarea>
+                <input
+                    class="form__buttons__button"
+                    type="file"
+                    id="file"
+                    (change)="setFile($event)"
+                />   
+                <label class="form__button file" for="file">{{fileName ? fileName : "Modifiez votre magnifique illustration !"}}</label>
+            </div>
+
+            <div class="form__footer">
+                <button class="form__button submit" type="submit" >
+                    Publier
+                    
+                </button>
+            </div>
+            <div class="error">{{ error }}</div>
+        </form>
+    </div>
+</main>

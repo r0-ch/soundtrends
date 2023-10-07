@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import parser from 'html-react-parser';
-import DeletePost from "../components/DeletePost";
+import DeletePost from "./DeletePost";
 import { UserContext } from "../contexts/UserContext";
 import { PostsContext } from "../contexts/PostsContext";
 import { format } from "date-fns";
