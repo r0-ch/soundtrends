@@ -1,0 +1,14 @@
+<div class="post">
+    <a class="post__link" href="posts/{{post._id}}">
+        <img class="post__cover" [src]="post.coverPath" alt="cover" />
+        <div class="post__infos">
+            <div class="info">
+                <p>le <span class="info__date">{{ post.updatedAt | date }}</span></p>
+                <p>par <span class="info__author">{{ post.author.fullName}} </span></p>
+                <span><span class="info__likes">{{ post.likes.length }}</span> like(s)</span>
+            </div>
+            <h3>{{ post.title }}</h3>
+            <p class="summary">{{ post.summary }}</p>
+        </div>
+    </a>
+</div>

@@ -1,0 +1,20 @@
+<div class="comment-section">
+    <h3>Commentaires</h3>
+    <div class="comments" >
+        
+        <app-comment-details *ngFor="let comment of comments$ | async" [comment]="comment"></app-comment-details>
+
+    </div>
+
+    <form class="form" (ngSubmit)="onSubmit()">
+        <textarea
+            placeholder="Partagez votre réaction !"
+            [(ngModel)]="comment"
+            name="comment"
+        > </textarea>
+        <button class="send" type="submit">
+            Commenter
+            
+        </button>
+    </form>
+</div>

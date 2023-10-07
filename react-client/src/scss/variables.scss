@@ -1,0 +1,94 @@
+$background-color: rgb(6, 11, 25);
+$border-color: rgba(255, 255, 255, 0.406);
+$background-secondary: rgba(0, 0, 0, 0.8);
+// $background-secondary: rgba(215, 215, 215, 0.8);
+$background-tertiary: rgba(255, 255, 255, 0.08);
+$font-color: rgb(155, 155, 155);
+// $font-color: rgb(20, 20, 20);
+$primary: #1aac83;
+$error: #e7195a;
+$first: rgb(110, 220, 217);
+$second: rgb(51, 47, 208);
+$third: rgb(225, 95, 237);
+$fourth: rgb(146, 84, 200);
+
+
+// $first-title: 
+$second-title: 'Neucha', cursive;
+$third-title: 'Castoro Titling', cursive;
+
+$second-font: 'Ubuntu Mono', monospace;
+
+@mixin first-title {
+    font-family: 'Press Start 2P', cursive;
+    transform: scale(1, 1.5);
+}
+
+// @mixin title-secondary {
+//     font-family: 'Bruno Ace', cursive;
+// }
+
+// @mixin title-tertiary {
+//     font-family: 'Castoro Titling', cursive;
+// }
+
+// @mixin font-tertiary {
+//     font-family: 'Poiret One', cursive;
+// }
+
+// @mixin font-secondary {
+//     // font-family: 'Neucha', cursive;
+//     // font-family: 'Bruno Ace SC', cursive;
+//     font-family: 'Ubuntu Mono', monospace;
+// }
+
+@mixin button {
+    cursor: pointer;
+    // margin: 1.5em 0;
+    // padding: 0.5em 1em;
+    background: $first;
+    background: linear-gradient(225deg, $first 10%, $second 100%);
+    color: azure;
+    border: 2px solid azure;
+    border-radius: 4px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6em;
+    transform: scale(1, 1.5);
+}
+
+@mixin rounded-button {
+    display: flex;
+    justify-content: center;
+    border: $border-color solid 2px;
+    border-radius: 50%;
+    width: 1em;
+    height: 1em;
+    padding: 0.5em;
+}
+
+@mixin glowing-title {
+    font-family: 'Neucha', cursive;
+    font-size: 2em;
+    color: #fff;
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px $second,
+        0 0 82px $second,
+        0 0 92px $second,
+        0 0 102px $second,
+        0 0 151px $second;
+}
+
+@mixin glass {
+    /* From https://css.glass */
+    background: rgba($color: #ffffff, $alpha: 0.015);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.5px);
+    -webkit-backdrop-filter: blur(6.5px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+
+}

@@ -1,0 +1,36 @@
+<main>
+    <div class="auth">
+        <form class="form" #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
+            <h1>S'inscrire</h1>
+            <div class="form__field">
+                <label htmlFor="signup-name">Votre pseudo :</label>
+                <input
+                    type="text"
+                    placeholder="fullname"
+                    [(ngModel)]="fullName"
+                    name="fullName"
+                />
+            </div>
+            <div class="form__field">
+                <label htmlFor="signup-email">Votre email :</label>
+                <input
+                    type="email"
+                    placeholder="email"
+                    [(ngModel)]="email"
+                    name="email"
+                />
+            </div>
+            <div class="form__field">
+                <label htmlFor="signup-password">Votre mot de passe :</label>
+                <input
+                    type="password"
+                    placeholder="password"
+                    [(ngModel)]="password"
+                    name="password"
+                />
+            </div>
+            <button type="submit">Sign Up</button>
+            <div class="error">{{ error }}</div>
+        </form>
+    </div>
+</main>
