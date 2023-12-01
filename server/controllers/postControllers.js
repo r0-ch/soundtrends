@@ -1,6 +1,32 @@
 const { default: mongoose } = require('mongoose');
 const Post = require('../models/postModel');
 const User = require('../models/userModel');
+const { S3, PutObjectCommand } = require('@aws-sdk/client-s3');
+const fs = require('fs');
+
+async function uploadS3(path, originalFilename, mimeType) {
+    const s3 = new S3({
+        region: 'auto',
+        endpoint: "https://7ea9deb5f32d75daf9eb644fbf2c962b.r2.cloudflarestorage.com/",
+        credentials: {
+            accessKeyId: process.env.BUCKET_ACCESS_KEY_ID,
+            secretAccessKey: process.env.BUCKET_SECRET_ACCESS_KEY,
+        },
+        signatureVersion: "v4"
+    });
+    const ext = originalFilename.split('.').slice(-1)[0];
+    const filename = Date.now() + '.' + ext;
+
+    const data = await s3.send(new PutObjectCommand({
+        Bucket: process.env.BUCKET,
+        Body: fs.readFileSync(path),
+        Key: filename,
+        ContentType: mimeType,
+        ACL: 'public-read'
+    }))
+
+    return `https://pub-a40d7c135572474d96ee87c91043b4d2.r2.dev/${filename}`;
+}
 
 const getPosts = async (req, res) => {
     try {
@@ -15,6 +41,7 @@ const getUserPosts = async (req, res) => {
     const author = req.user._id;
 
     try {
+
         const posts = await Post.find({ author });
 
         res.status(200).json(posts)
@@ -25,6 +52,7 @@ const getUserPosts = async (req, res) => {
 
 const getPost = async (req, res) => {
     try {
+
         const { id } = req.params;
         const post = await Post.findById(id).populate('author');
         res.status(200).json(post)
@@ -36,6 +64,7 @@ const getPost = async (req, res) => {
 
 const createPost = async (req, res) => {
     try {
+
         const author = req.user._id;
         const { title, summary, content } = req.body;
 
@@ -59,10 +88,10 @@ const createPost = async (req, res) => {
             throw Error('Vous devez ajouter une illustration')
         }
 
-        const { filename } = req.file;
-        const coverPath = `${req.protocol}://${req.get('host')}/images/${filename}`;
+        const { filename, path, originalname, mimetype } = req.file;
+        // const coverPath = `${req.protocol}://${req.get('host')}/images/${filename}`;
 
-
+        const coverPath = await uploadS3(path, originalname, mimetype);
 
         const post = await Post.create({
             title,
@@ -81,6 +110,7 @@ const createPost = async (req, res) => {
 
 const updatePost = async (req, res) => {
     try {
+
         let newCoverPath = null;
         const { id } = req.params;
         const { title, summary, content } = req.body;
@@ -103,8 +133,10 @@ const updatePost = async (req, res) => {
 
 
         if (req.file) {
-            const { filename } = req.file;
-            newCoverPath = `${req.protocol}://${req.get('host')}/images/${filename}`
+            const { filename, path, originalname, mimetype } = req.file;
+            // newCoverPath = `${req.protocol}://${req.get('host')}/images/${filename}`
+            newCoverPath = await uploadS3(path, originalname, mimetype);
+
         }
 
         const previousPost = await Post.findById(id);
@@ -124,6 +156,7 @@ const removePost = async (req, res) => {
     const userId = req.user._id;
 
     try {
+
         const { id } = req.params;
 
 
@@ -148,6 +181,7 @@ const toggleLike = async (req, res) => {
     const userId = req.user._id;
 
     try {
+
         const post = await Post.findById(postId);
         const user = await User.findById(userId);
 
