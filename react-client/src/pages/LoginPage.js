@@ -1,4 +1,3 @@
-import 'dotenv/config'
 import { useContext, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
 

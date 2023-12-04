@@ -1,4 +1,3 @@
-import 'dotenv/config'
 import { useContext, useEffect } from "react";
 import PostDetails from "../components/PostDetails";
 import { PostsContext } from "../contexts/PostsContext";
