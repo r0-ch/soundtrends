@@ -1,4 +1,3 @@
-import 'dotenv/config'
 import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import parser from 'html-react-parser';
