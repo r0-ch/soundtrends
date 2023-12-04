@@ -13,6 +13,7 @@ import EditPostPage from './pages/EditPostPage';
 
 
 function App() {
+  console.log("fix: 1");
   const { user } = useContext(UserContext);
 
   return (
