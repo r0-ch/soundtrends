@@ -25,7 +25,7 @@ const CreatePostPage = () => {
         formData.set('content', content);
         formData.set('cover', files[0]);
 
-        const response = await fetch('https://soundtrends-backend.vercel.app/api/posts/', {
+        const response = await fetch('https://soundtrends-backend-rosny-chums-projects.vercel.app/api/posts/', {
             method: 'POST',
             body: formData,
             headers: {

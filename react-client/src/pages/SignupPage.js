@@ -17,7 +17,7 @@ const SignupPage = () => {
 
         const data = { email, password, fullName };
 
-        const response = await fetch('https://soundtrends-backend.vercel.app/api/user/signup', {
+        const response = await fetch('https://soundtrends-backend-rosny-chums-projects.vercel.app/api/user/signup', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {

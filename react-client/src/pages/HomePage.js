@@ -31,7 +31,7 @@ const HomePage = () => {
 
 
         const fetchPosts = async () => {
-            const response = await fetch(`https://soundtrends-backend.vercel.app/api/posts`);
+            const response = await fetch(`https://soundtrends-backend-rosny-chums-projects.vercel.app/api/posts`);
             const json = await response.json();
 
             if (response.ok) {
