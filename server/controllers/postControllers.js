@@ -1,8 +1,10 @@
-const { default: mongoose } = require('mongoose');
+require('dotenv').config();
+const mongoose = require('mongoose');
 const Post = require('../models/postModel');
 const User = require('../models/userModel');
 const { S3, PutObjectCommand } = require('@aws-sdk/client-s3');
 const fs = require('fs');
+const db = require('../utils');
 
 async function uploadS3(path, originalFilename, mimeType) {
     const s3 = new S3({
@@ -29,6 +31,7 @@ async function uploadS3(path, originalFilename, mimeType) {
 }
 
 const getPosts = async (req, res) => {
+    db();
     try {
         const posts = await Post.find().populate('author');
         res.status(200).json(posts)
@@ -38,6 +41,7 @@ const getPosts = async (req, res) => {
 };
 
 const getUserPosts = async (req, res) => {
+    db();
     const author = req.user._id;
 
     try {
@@ -51,6 +55,7 @@ const getUserPosts = async (req, res) => {
 }
 
 const getPost = async (req, res) => {
+    db();
     try {
 
         const { id } = req.params;
@@ -63,6 +68,7 @@ const getPost = async (req, res) => {
 
 
 const createPost = async (req, res) => {
+    db();
     try {
 
         const author = req.user._id;
@@ -109,6 +115,7 @@ const createPost = async (req, res) => {
 };
 
 const updatePost = async (req, res) => {
+    db();
     try {
 
         let newCoverPath = null;
@@ -153,6 +160,7 @@ const updatePost = async (req, res) => {
 };
 
 const removePost = async (req, res) => {
+    db();
     const userId = req.user._id;
 
     try {
@@ -177,6 +185,7 @@ const removePost = async (req, res) => {
 }
 
 const toggleLike = async (req, res) => {
+    db();
     const { postId } = req.params;
     const userId = req.user._id;
 

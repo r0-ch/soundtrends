@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 const Post = require('../models/postModel');
+const db = require ('../utils');
 
 const getComments = async (req, res) => {
+    db();
     const { id } = req.params;
     try {
         const post = await Post.findById(id).populate({ path: 'comments.author' });
@@ -14,6 +16,7 @@ const getComments = async (req, res) => {
 }
 
 const getComment = async (req, res) => {
+    db();
     const { id, commentId } = req.params;
     try {
         const post = await Post.findById(id);
@@ -27,7 +30,7 @@ const getComment = async (req, res) => {
 }
 
 const addComment = async (req, res) => {
-
+    db();
 
     try {
         const { id } = req.params;
@@ -59,6 +62,7 @@ const addComment = async (req, res) => {
 }
 
 const removeComment = async (req, res) => {
+    db();
     const { id, commentId } = req.params;
     const userId = req.user._id;
 
