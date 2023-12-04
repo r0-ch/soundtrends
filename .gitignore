@@ -1,5 +1,4 @@
 server/node_modules
 server/.env
 react-client/node_modules
-react-client/.env
 angular-client/node_modules
