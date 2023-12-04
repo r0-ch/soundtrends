@@ -25,7 +25,7 @@ const CreatePostPage = () => {
         formData.set('content', content);
         formData.set('cover', files[0]);
 
-        const response = await fetch(`${process.env.BASE_URL}/posts/`, {
+        const response = await fetch('http://localhost:4000/api/posts/', {
             method: 'POST',
             body: formData,
             headers: {
