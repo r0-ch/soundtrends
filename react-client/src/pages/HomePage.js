@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import { useContext, useEffect } from "react";
 import PostDetails from "../components/PostDetails";
 import { PostsContext } from "../contexts/PostsContext";
@@ -31,7 +32,7 @@ const HomePage = () => {
 
 
         const fetchPosts = async () => {
-            const response = await fetch('http://localhost:4000/api/posts');
+            const response = await fetch(`${process.env.BASE_URL}/posts`);
             const json = await response.json();
 
             if (response.ok) {
