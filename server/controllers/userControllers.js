@@ -2,12 +2,14 @@ const User = require('../models/userModel');
 const validator = require('validator');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const db = require('mongoose');
 
 const createToken = (_id) => {
     return jwt.sign({_id}, process.env.SECRET)
 }
 
 const signupUser = async (req, res) => {
+    db();
     const { email, password, fullName } = req.body;
 
     try {
@@ -45,6 +47,7 @@ const signupUser = async (req, res) => {
 };
 
 const loginUser = async (req, res) => {
+    db();
     const { email, password } = req.body;
 
     try {
