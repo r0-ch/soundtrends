@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import { useContext, useState } from "react";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -25,7 +26,7 @@ const CreatePostPage = () => {
         formData.set('content', content);
         formData.set('cover', files[0]);
 
-        const response = await fetch('http://localhost:4000/api/posts/', {
+        const response = await fetch(`${process.env.BASE_URL}/posts/`, {
             method: 'POST',
             body: formData,
             headers: {

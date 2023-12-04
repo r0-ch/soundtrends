@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import { useContext, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
 
@@ -13,7 +14,7 @@ const LoginPage = () => {
 
         const data = { email, password };
 
-        const response = await fetch('http://localhost:4000/api/user/login', {
+        const response = await fetch(`${process.env.BASE_URL}/user/login`, {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {

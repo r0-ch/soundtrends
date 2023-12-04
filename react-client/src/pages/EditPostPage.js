@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import { useContext, useEffect, useState } from "react";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -17,7 +18,7 @@ const EditPostPage = () => {
 
     useEffect(() => {
         const postData = async () => {
-            const response = await fetch(`http://localhost:4000/api/posts/${id}`);
+            const response = await fetch(`${process.env.BASE_URL}/posts/${id}`);
             const json = await response.json();
 
             if (response.ok) {
@@ -42,7 +43,7 @@ const EditPostPage = () => {
             formData.set('cover', files[0]);
         }
 
-        const response = await fetch(`http://localhost:4000/api/posts/${id}`, {
+        const response = await fetch(`${process.env.BASE_URL}/posts/${id}`, {
             method: 'PATCH',
             body: formData,
             headers: {
