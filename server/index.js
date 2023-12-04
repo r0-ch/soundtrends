@@ -11,7 +11,13 @@ const userRoutes = require('./routes/userRoutes');
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+     {
+        origin: ["https://soundtrends-frontend.vercel.app"],
+        methods: ["POST", "GET"],
+        credentials: true
+     }
+));
 app.use('/images', express.static(path.join(__dirname, 'uploads/images/')));
 
 app.use((req, res, next) => {
