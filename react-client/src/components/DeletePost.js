@@ -17,7 +17,7 @@ const DeletePost = ({ post }) => {
     const handleDelete = async (e) => {
         e.preventDefault();
 
-        const response = await fetch(`http://localhost:4000/api/posts/${post._id}`, {
+        const response = await fetch(`https://soundtrends-backend.vercel.app/api/posts/${post._id}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${user.token}`

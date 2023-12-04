@@ -17,7 +17,7 @@ const EditPostPage = () => {
 
     useEffect(() => {
         const postData = async () => {
-            const response = await fetch(`http://localhost:4000/api/posts/${id}`);
+            const response = await fetch(`https://soundtrends-backend.vercel.app/api/posts/${id}`);
             const json = await response.json();
 
             if (response.ok) {
@@ -42,7 +42,7 @@ const EditPostPage = () => {
             formData.set('cover', files[0]);
         }
 
-        const response = await fetch(`http://localhost:4000/api/posts/${id}`, {
+        const response = await fetch(`https://soundtrends-backend.vercel.app/api/posts/${id}`, {
             method: 'PATCH',
             body: formData,
             headers: {
