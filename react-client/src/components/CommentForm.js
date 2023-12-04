@@ -17,7 +17,7 @@ const CommentForm = () => {
             return
         }
 
-        const response = await fetch(`http://localhost:4000/api/posts/${postId}/comments`, {
+        const response = await fetch(`https://soundtrends-backend-rosny-chums-projects.vercel.app/api/posts/${postId}/comments`, {
             method: 'POST',
             body: JSON.stringify({ comment }),
             headers: {

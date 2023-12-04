@@ -10,7 +10,7 @@ const Comments = () => {
 
     useEffect(() => {
         const fetchComments = async () => {
-            const response = await fetch(`http://localhost:4000/api/posts/${id}/comments`);
+            const response = await fetch(`https://soundtrends-backend-rosny-chums-projects.vercel.app/api/posts/${id}/comments`);
             const json = await response.json();
 
             if (response.ok) {

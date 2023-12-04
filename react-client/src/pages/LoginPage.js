@@ -13,7 +13,7 @@ const LoginPage = () => {
 
         const data = { email, password };
 
-        const response = await fetch('https://soundtrends-backend.vercel.app/api/user/login', {
+        const response = await fetch('https://soundtrends-backend-rosny-chums-projects.vercel.app/api/user/login', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
