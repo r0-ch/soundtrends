@@ -11,12 +11,11 @@ const userRoutes = require('./routes/userRoutes');
 const app = express();
 
 app.use(express.json());
-const corsOptions = {
+app.use(cors({
     origin: 'https://soundtrends-frontend.vercel.app',
-    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
-
-app.use(cors(corsOptions));
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+}));
 app.use('/images', express.static(path.join(__dirname, 'uploads/images/')));
 
 app.use((req, res, next) => {

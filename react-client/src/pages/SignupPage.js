@@ -21,8 +21,7 @@ const SignupPage = () => {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
-                'Content-type': 'application/json',
-                'Access-Control-Allow-Origin': "*"
+                'Content-type': 'application/json'
             }
         })
         const json = await response.json();
