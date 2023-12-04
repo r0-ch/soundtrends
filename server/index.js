@@ -23,5 +23,14 @@ app.use('/api/posts', postRoutes);
 app.use('/api/posts', commentRoutes);
 app.use('/api/user', userRoutes);
 
+mongoose.connect(process.env.MONGO_URL)
+    .then(() => {
+        console.log('connected to db');
+
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+
 app.listen(process.env.PORT, () => console.log(`listening on port ${process.env.PORT}`))
 
