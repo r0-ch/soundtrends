@@ -13,9 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(cors(
     {
-        origin: ["https://soundtrends-frontend.vercel.app"],
-        methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-        credentials: true
+        origin: "https://soundtrends-frontend.vercel.app"
     }
 ));
 app.use('/images', express.static(path.join(__dirname, 'uploads/images/')));
