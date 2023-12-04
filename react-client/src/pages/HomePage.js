@@ -31,7 +31,7 @@ const HomePage = () => {
 
 
         const fetchPosts = async () => {
-            const response = await fetch('http://localhost:4000/api/posts');
+            const response = await fetch(`https://soundtrends-backend.vercel.app/api/posts`);
             const json = await response.json();
 
             if (response.ok) {

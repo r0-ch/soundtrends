@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/soundtrends/static/css/main.c51ff5c8.css",
-    "main.js": "/soundtrends/static/js/main.ceefbc45.js",
-    "static/media/cccoil.svg": "/soundtrends/static/media/cccoil.b3248d4c494f3b51ff09.svg",
-    "index.html": "/soundtrends/index.html",
-    "main.c51ff5c8.css.map": "/soundtrends/static/css/main.c51ff5c8.css.map",
-    "main.ceefbc45.js.map": "/soundtrends/static/js/main.ceefbc45.js.map"
+    "main.css": "./static/css/main.0ac4d484.css",
+    "main.js": "./static/js/main.b223f2a8.js",
+    "static/media/cccoil.svg": "./static/media/cccoil.b3248d4c494f3b51ff09.svg",
+    "index.html": "./index.html",
+    "main.0ac4d484.css.map": "./static/css/main.0ac4d484.css.map",
+    "main.b223f2a8.js.map": "./static/js/main.b223f2a8.js.map"
   },
   "entrypoints": [
-    "static/css/main.c51ff5c8.css",
-    "static/js/main.ceefbc45.js"
+    "static/css/main.0ac4d484.css",
+    "static/js/main.b223f2a8.js"
   ]
 }

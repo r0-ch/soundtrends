@@ -22,7 +22,7 @@ const Post = () => {
     const likePost = async (e) => {
         e.preventDefault();
 
-        const response = await fetch(`http://localhost:4000/api/posts/${id}/like`, {
+        const response = await fetch(`https://soundtrends-backend.vercel.app/api/posts/${id}/like`, {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${user.token}`
@@ -39,7 +39,7 @@ const Post = () => {
 
     useEffect(() => {
         const fetchPost = async () => {
-            const response = await fetch(`http://localhost:4000/api/posts/${id}`);
+            const response = await fetch(`https://soundtrends-backend.vercel.app/api/posts/${id}`);
             const json = await response.json();
 
             if (response.ok) {

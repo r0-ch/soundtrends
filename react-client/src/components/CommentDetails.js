@@ -12,7 +12,7 @@ const CommentDetails = ({ comment }) => {
     const date = comment.createdAt ? format(new Date(comment.createdAt), 'd/MM/yy') : 'N/A';
 
     const handleClick = async () => {
-        const response = await fetch(`http://localhost:4000/api/posts/${id}/comments/${comment._id}`, {
+        const response = await fetch(`https://soundtrends-backend.vercel.app/api/posts/${id}/comments/${comment._id}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${user.token}`
