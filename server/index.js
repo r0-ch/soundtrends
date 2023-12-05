@@ -11,13 +11,8 @@ const userRoutes = require('./routes/userRoutes');
 const app = express();
 
 app.use(express.json());
-app.use(cors(
-     {
-        origin: ["https://soundtrends-api.onrender.com/api/"],
-        methods: ["POST", "GET", "DELETE", "PUT", "PATCH", "HEAD"],
-        credentials: true
-     }
-));
+var corsOptions = { origin: "*", optionsSuccessStatus: 200, };
+app.use(cors(corsOptions));
 app.use('/images', express.static(path.join(__dirname, 'uploads/images/')));
 
 app.use((req, res, next) => {
