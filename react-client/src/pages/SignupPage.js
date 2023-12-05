@@ -1,6 +1,7 @@
 // import SignupForm from "../components/SignupForm";
 import { useContext, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
+import { BASE_URL } from "../../utils";
 
 const SignupPage = () => {
 
@@ -17,7 +18,7 @@ const SignupPage = () => {
 
         const data = { email, password, fullName };
 
-        const response = await fetch('https://soundtrends-backend.vercel.app/api/user/signup', {
+        const response = await fetch(BASE_URL + '/user/signup', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {

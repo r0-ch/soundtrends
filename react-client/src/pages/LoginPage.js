@@ -1,5 +1,7 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
+import { BASE_URL } from "../../utils";
+
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
@@ -13,7 +15,7 @@ const LoginPage = () => {
 
         const data = { email, password };
 
-        const response = await fetch('https://soundtrends-backend-rosny-chums-projects.vercel.app/api/user/login', {
+        const response = await fetch(BASE_URL + '/user/login', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
