@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
-import { BASE_URL } from "../../utils";
+import { BASE_URL } from "../utils";
 
 
 const LoginPage = () => {

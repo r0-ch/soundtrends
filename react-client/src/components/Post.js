@@ -5,7 +5,7 @@ import DeletePost from "./DeletePost";
 import { UserContext } from "../contexts/UserContext";
 import { PostsContext } from "../contexts/PostsContext";
 import { format } from "date-fns";
-import { BASE_URL } from "../../utils";
+import { BASE_URL } from "../utils";
 
 
 const Post = () => {

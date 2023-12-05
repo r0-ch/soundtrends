@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext";
-import { BASE_URL } from "../../utils";
+import { BASE_URL } from "../utils";
 
 const DeletePost = ({ post }) => {
     const { user } = useContext(UserContext);

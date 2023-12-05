@@ -3,7 +3,7 @@ import CommentDetails from "./CommentDetails";
 import { useParams } from "react-router-dom";
 import CommentForm from "./CommentForm";
 import { PostsContext } from "../contexts/PostsContext";
-import { BASE_URL } from "../../utils";
+import { BASE_URL } from "../utils";
 
 const Comments = () => {
     const { id } = useParams();
