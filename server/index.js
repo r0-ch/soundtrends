@@ -13,8 +13,8 @@ const app = express();
 app.use(express.json());
 app.use(cors(
      {
-        origin: ["https://soundtrends-frontend.vercel.app"],
-        methods: ["POST", "GET"],
+        origin: ["https://soundtrends-api.onrender.com/api/"],
+        methods: ["POST", "GET", "DELETE", "PUT", "PATCH", "HEAD"],
         credentials: true
      }
 ));
