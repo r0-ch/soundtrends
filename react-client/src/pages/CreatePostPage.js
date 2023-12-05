@@ -3,6 +3,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { UserContext } from "../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../utils";
 
 const CreatePostPage = () => {
     const { user } = useContext(UserContext);
@@ -25,7 +26,7 @@ const CreatePostPage = () => {
         formData.set('content', content);
         formData.set('cover', files[0]);
 
-        const response = await fetch('https://soundtrends-backend-rosny-chums-projects.vercel.app/api/posts/', {
+        const response = await fetch(BASE_URL + '/posts/', {
             method: 'POST',
             body: formData,
             headers: {

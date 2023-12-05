@@ -3,6 +3,8 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useNavigate, useParams } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext";
+import { BASE_URL } from "../../utils";
+
 
 const EditPostPage = () => {
     const { id } = useParams();
@@ -17,7 +19,7 @@ const EditPostPage = () => {
 
     useEffect(() => {
         const postData = async () => {
-            const response = await fetch(`https://soundtrends-backend-rosny-chums-projects.vercel.app/api/posts/${id}`);
+            const response = await fetch(BASE_URL + `/posts/${id}`);
             const json = await response.json();
 
             if (response.ok) {
@@ -42,7 +44,7 @@ const EditPostPage = () => {
             formData.set('cover', files[0]);
         }
 
-        const response = await fetch(`https://soundtrends-backend-rosny-chums-projects.vercel.app/api/posts/${id}`, {
+        const response = await fetch(BASE_URL + `/posts/${id}`, {
             method: 'PATCH',
             body: formData,
             headers: {

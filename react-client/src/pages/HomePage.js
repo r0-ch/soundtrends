@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import PostDetails from "../components/PostDetails";
 import { PostsContext } from "../contexts/PostsContext";
+import { BASE_URL } from "../../utils";
 
 const HomePage = () => {
 
@@ -31,7 +32,7 @@ const HomePage = () => {
 
 
         const fetchPosts = async () => {
-            const response = await fetch(`https://soundtrends-backend-rosny-chums-projects.vercel.app/api/posts`);
+            const response = await fetch(BASE_URL + `/posts`);
             const json = await response.json();
 
             if (response.ok) {

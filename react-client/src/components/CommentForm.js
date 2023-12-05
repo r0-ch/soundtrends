@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext";
 import { PostsContext } from "../contexts/PostsContext";
+import { BASE_URL } from "../../utils";
 
 const CommentForm = () => {
     const { user } = useContext(UserContext);
@@ -17,7 +18,7 @@ const CommentForm = () => {
             return
         }
 
-        const response = await fetch(`https://soundtrends-backend-rosny-chums-projects.vercel.app/api/posts/${postId}/comments`, {
+        const response = await fetch(BASE_URL + `/posts/${postId}/comments`, {
             method: 'POST',
             body: JSON.stringify({ comment }),
             headers: {

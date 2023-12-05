@@ -5,6 +5,8 @@ import DeletePost from "./DeletePost";
 import { UserContext } from "../contexts/UserContext";
 import { PostsContext } from "../contexts/PostsContext";
 import { format } from "date-fns";
+import { BASE_URL } from "../../utils";
+
 
 const Post = () => {
 
@@ -22,7 +24,7 @@ const Post = () => {
     const likePost = async (e) => {
         e.preventDefault();
 
-        const response = await fetch(`https://soundtrends-backend-rosny-chums-projects.vercel.app/api/posts/${id}/like`, {
+        const response = await fetch(BASE_URL + `/posts/${id}/like`, {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${user.token}`
@@ -39,7 +41,7 @@ const Post = () => {
 
     useEffect(() => {
         const fetchPost = async () => {
-            const response = await fetch(`https://soundtrends-backend-rosny-chums-projects.vercel.app/api/posts/${id}`);
+            const response = await fetch(BASE_URL + `/posts/${id}`);
             const json = await response.json();
 
             if (response.ok) {

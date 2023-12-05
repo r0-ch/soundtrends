@@ -3,6 +3,7 @@ import CommentDetails from "./CommentDetails";
 import { useParams } from "react-router-dom";
 import CommentForm from "./CommentForm";
 import { PostsContext } from "../contexts/PostsContext";
+import { BASE_URL } from "../../utils";
 
 const Comments = () => {
     const { id } = useParams();
@@ -10,7 +11,7 @@ const Comments = () => {
 
     useEffect(() => {
         const fetchComments = async () => {
-            const response = await fetch(`https://soundtrends-backend-rosny-chums-projects.vercel.app/api/posts/${id}/comments`);
+            const response = await fetch(BASE_URL + `/posts/${id}/comments`);
             const json = await response.json();
 
             if (response.ok) {

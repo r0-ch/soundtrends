@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext";
+import { BASE_URL } from "../../utils";
 
 const DeletePost = ({ post }) => {
     const { user } = useContext(UserContext);
@@ -17,7 +18,7 @@ const DeletePost = ({ post }) => {
     const handleDelete = async (e) => {
         e.preventDefault();
 
-        const response = await fetch(`https://soundtrends-backend-rosny-chums-projects.vercel.app/api/posts/${post._id}`, {
+        const response = await fetch(BASE_URL + `/posts/${post._id}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${user.token}`

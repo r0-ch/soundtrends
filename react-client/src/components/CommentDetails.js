@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext";
 import { PostsContext } from "../contexts/PostsContext";
 import { format } from "date-fns";
+import { BASE_URL } from "../../utils";
 
 const CommentDetails = ({ comment }) => {
     const { id } = useParams();
@@ -12,7 +13,7 @@ const CommentDetails = ({ comment }) => {
     const date = comment.createdAt ? format(new Date(comment.createdAt), 'd/MM/yy') : 'N/A';
 
     const handleClick = async () => {
-        const response = await fetch(`https://soundtrends-backend-rosny-chums-projects.vercel.app/api/posts/${id}/comments/${comment._id}`, {
+        const response = await fetch(BASE_URL + `/posts/${id}/comments/${comment._id}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${user.token}`
