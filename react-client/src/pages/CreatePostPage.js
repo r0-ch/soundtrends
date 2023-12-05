@@ -3,7 +3,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { UserContext } from "../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
-import { BASE_URL } from "../../utils";
+import { BASE_URL } from "../utils";
 
 const CreatePostPage = () => {
     const { user } = useContext(UserContext);

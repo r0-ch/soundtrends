@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import PostDetails from "../components/PostDetails";
 import { PostsContext } from "../contexts/PostsContext";
-import { BASE_URL } from "../../utils";
+// import { BASE_URL } from "../utils";
 
 const HomePage = () => {
 
@@ -29,10 +29,10 @@ const HomePage = () => {
 
 
     useEffect(() => {
-
+        console.log(`https://soundtrends-api.onrender.com/api/posts`);
 
         const fetchPosts = async () => {
-            const response = await fetch(BASE_URL + `/posts`);
+            const response = await fetch("https://soundtrends-api.onrender.com/api/posts");
             const json = await response.json();
 
             if (response.ok) {
