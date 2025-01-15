@@ -51,11 +51,12 @@ The application will be accessible at http://localhost:3000.
 
 ## Project Structure
 
-- `src/` : Contains the main source code.
-  - `models/` : Data models for users, posts, comments, and likes.
-  - `routes/` : Routes for handling registration, login, post creation, comments, and likes.
-  - `controllers/` : Logic for handling user actions (creating posts, commenting, etc.).
-- `public/` : Static files such as CSS and JS assets.
+### Server
+
+- `models/` : Data models for users, posts, comments, and likes.
+- `routes/` : Routes for handling registration, login, post creation, comments, and likes.
+- `controllers/` : Logic for handling user actions (creating posts, commenting, etc.).
+- `middlewares/` : Custom middleware for handling authorization.
 
 ## Contributing
 
